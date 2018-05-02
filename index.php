@@ -7,25 +7,27 @@
     <title>Gubl</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
 </head>
 <body>
-    
-    <nav>
-
-        <ul>
-        <li><img src="#" alt="logo" class="nav nav_logo"></li>
-        <li><a href="login.php" class="nav nav_logo">Login</a></li>
-        </ul>
-
-    </nav>
-    
 
     <section class="page page_home">
+        <nav>
+
+            <ul>
+            <li><img src="images/GUBL_Logo.svg" alt="logo" class="nav nav_logo"></li>
+            <li><a href="login.php" class="nav nav_login">LOG IN</a></li>
+            </ul>
+
+        </nav>
+    
+
+   
 
         <div class="page_home_quote">
         
-        <H1>WIJ HELPEN
-        <br>U een handje verder</H1>
+        <H1 class="text_white">WIJ HELPEN U
+        <br> een handje verder!</H1>
         
         </div>
 
@@ -62,12 +64,12 @@
             <h2 class="text_white">wie zijn we?</h2>
 
             <div class="person person_1">
-                <img class="person_img" src="#" alt="Kobe Christiaensen">
+                <img class="person_img" src="images/kobe.jpg" alt="Kobe Christiaensen">
                 <p class="text_white">Kobe Christiaensen</p>
             </div>
 
             <div class="person person_2">
-                <img class="person_img" src="#" alt="Jimmy Truyts">
+                <img class="person_img" src="images/jimmy.jpg" alt="Jimmy Truyts">
                 <p class="text_white">Jimmy Truyts</p>
             </div>
 
