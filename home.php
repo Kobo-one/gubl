@@ -8,21 +8,10 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/jquery.scrollify.js"></script>
 </head>
 <body>
-
-        <nav>
-
-            <ul>
-            <li><img src="images/GUBL_Logo.svg" alt="logo" class="nav nav_logo"></li>
-            <li><a href="login.php" class="nav nav_login">LOG IN</a></li>
-            </ul>
-
-        </nav>
-    
-
+<iframe width="1922" height="1080" src="https://xd.adobe.com/embed/9aa331f4-98f8-40b7-826c-a5392f199fd4?fullscreen" frameborder="0" allowfullscreen></iframe>
    
 </body>
 </html>
