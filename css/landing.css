@@ -1,0 +1,196 @@
+
+*{
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+body{
+    font-family: 'Roboto', sans-serif; 
+    overflow-x: hidden;
+}
+.text{
+    font-size: 1.4em;
+    font-family: 'Raleway', sans-serif;
+    margin: 0px 40px;
+}
+
+.text_white{
+    color :#fff;
+}
+
+nav{
+    height: 60px;
+    padding: 15px;
+}
+
+nav ul{
+
+    display: flex;
+    justify-content:space-between; 
+    align-items: center;
+
+}
+
+.nav_logo{
+    height: 40px;
+}
+.nav_login{
+    font-size: 1em;
+    font-variant: small-caps;
+    background-color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+}
+
+.nav_login:hover{
+    color: black;
+}
+
+
+.page{
+    min-height: 100vh;
+}
+
+.page_home{
+    height: 100vh;
+    background-image: url("../images/hero_image.jpg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 1000px rgba(0,113,187,0.3);
+}
+
+.page_home_quote{
+    position: absolute;
+    width: 97%;
+    text-align: center;
+    bottom: 150px;
+}
+
+.page_home_quote h1{
+    font-size: 2em;
+    font-weight: bolder;
+}
+.page_home_CTA{
+    position: absolute;
+    bottom: 60px;
+    height: 40px;
+    width: 100%;
+    background-image: url("../images/arrow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+}
+
+.page_gubl{
+    background-color: #145784;
+    padding: 15vh 0; 
+}
+
+.page_gubl_logo{
+    width: 70%;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.div_white{
+    background-color: #fff;
+}
+
+.page_gubl_div{
+    text-align: center;
+    margin-bottom: 15vh ;
+}
+
+
+.page_what{
+    background-color: #3FA9F5;
+    padding-bottom: 20vh;
+}
+
+.text_blue{
+    color: #145784; 
+}
+
+.header{
+    font-size: 1.5em;
+}
+
+.page_what_header{
+    padding: 20vh 0 15px;
+}
+
+.person_img{
+    max-width: 350px;
+    width: 60vw;
+    margin: 2vh 0;
+}
+
+.page_who{
+    background-color:  #145784;
+
+    padding-bottom: 10vh;
+}
+
+.person{
+    padding-bottom: 5vh; 
+}
+
+.text_who{
+    padding-top: 7vh; 
+}
+
+
+@media screen and (min-width: 900px){
+
+
+    nav{
+        height: 80px;
+    }
+    
+    nav ul{
+    
+        display: flex;
+        justify-content:space-between; 
+        align-items: center;
+    
+    }
+    
+    .nav_logo{
+        height: 60px;
+    }
+    .nav_login{
+        font-size: 1.2em;
+        font-variant: small-caps;
+        background-color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: black;
+        font-weight: 900;
+    }
+
+.persons{
+    display: flex;
+
+}
+.person_1{
+    margin-right: 6vw; 
+}
+
+
+
+}
+@media screen and (min-width: 900px){
+
+
+    .text{
+        font-size: 2em;
+        margin: 0px 40px;
+    }
+
+}
