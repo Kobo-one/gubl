@@ -11,37 +11,35 @@
     <script src="lib/js/jquery.scrollify.js"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="home.php"><img src="images/GUBL_Logo.svg" alt="logo" class="nav nav_logo"></a></li>
-            <li><div class="nav_user"><img class="user-pic" src="images/users/portfolio_persona1.jpg" alt="user"><img class='down-arrow' src="images/arrow-black.png" alt="arrow"></div></li>
-        </ul>
-    </nav>
-
+<?php include_once("includes/nav.php");?>
     <div class='categories'>
-        <a href="#" class='categorie'>ITEMS</a>
+        <a href="items.php" class='categorie'>ITEMS</a>
         <a href="#" class='categorie'>AANVRAGEN</a>
     </div>
     
     <section class="products">
 
         <div class="product">
-                <div class="product_image" style= "background-image: url('../images/products/brood.jpg')">
+            <a href="product.php?item=brood">
+                <div>
                     <p class='product_price'>€ 2,30</p>
+                    <img class="product_image" src="images/products/brood.jpg" alt="brood">
                 </div>
                 <div class="product_details">
                     <p class="product_name">Wit brood</p>
                     <div class="progressbar">
-                        <div class="bar" style="width: 40%;"></div>
-                        <div class="marker" style="left: 10%;"></div>
-                        <div class="marker" style="left: 70%;"></div>
+                        <div class="bar" style="width: 30%;"></div>
+                        <div class="marker" style="left: 75%;"></div>
+                        <div class="marker" style="left: 50%;"></div>
+                        <div class="backgr"></div>
                     </div>
                     <div class="product_amount-time">
-
+                        <p>150 van 200</p>
+                        <div class="product_time"><img src="images/time.svg" alt="time"><p>1 MAAND</p></div>
                     </div>
 
                 </div>
-
+            </a>
 
         </div>
 
