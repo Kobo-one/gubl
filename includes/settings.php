@@ -8,11 +8,11 @@
         <h1>ZOEKEN OP</h1>
         <div class="zoeken">
             <a href="<?php echo Functions::addOrUpdateUrlParam("type", 1);?>" class="optie zoek">ETEN EN DRINKEN</a>
-            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 2);?>" class="optie zoek smaller">WONING VOORZIENINGEN</a>
-            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 3);?>" class="optie zoek">HUISHOUD APPARATEN</a>
-            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 4);?>" class="optie zoeksmaller">ENTERTAINMENT</a>
-            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 5);?>" class="optie zoek">AMUSEMENT</a>
-            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 6);?>" class="optie zoek">MEUBELEN</a>
+            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 2);?>" class="optie zoek">HOBBY</a>
+            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 3);?>" class="optie zoek">HUIS EN TUIN</a>
+            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 4);?>" class="optie zoek">AMUSEMENT</a>
+            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 5);?>" class="optie zoek">KLEDING</a>
+            <a href="<?php echo Functions::addOrUpdateUrlParam("type", 6);?>" class="optie zoek">TECHNOLOGIE</a>
         </div>
 
         <h1>SORTEREN OP</h1>

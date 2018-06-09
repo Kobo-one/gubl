@@ -40,7 +40,7 @@
 
     <section id="gubl" class="page page_gubl">
         <div class="page_gubl_div div_white">
-        <img class="page_gubl_logo"src="images/Logo_Slogan.png" alt="Gubl, Group up Buy Low!">
+        <img class="page_gubl_logo"src="images/logo_slogan.png" alt="Gubl, Group up Buy Low!">
         </div>
 
         <div class="text text_gubl text_white">

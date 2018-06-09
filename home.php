@@ -18,7 +18,7 @@ include_once("lib/classes/Functions.class.php");
 <?php include_once("includes/nav.php");?>
     <div class='categories'>
         <a href="items.php" class='categorie'>ITEMS</a>
-        <a href="#" class='categorie'>AANVRAGEN</a>
+        <a href="aanvragen.php" class='categorie'>AANVRAGEN</a>
     </div>
     
     <section class="products">
