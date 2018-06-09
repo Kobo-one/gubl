@@ -279,6 +279,12 @@ input{
     font-size: 6vw;
 }
 
+.button_add{
+    position: absolute;
+    right: 10px;
+    background-image: url("../images/plus.svg");
+}
+
 .slider{
     padding: 0;
 }

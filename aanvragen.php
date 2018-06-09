@@ -16,11 +16,11 @@ include_once("lib/classes/Functions.class.php");
     <script src="lib/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
-<?php include_once("includes/settings.php");?>
 <?php include_once("includes/nav.php");?>
     <div class='categories'>
         <div class='button button_back' onclick="history.go(-1);"></div>
         <p class='categorie'>AANVRAGEN</p>
+        <a class="button button_add" href="vraag.php"></a>
     </div>
     
     <section class="products">

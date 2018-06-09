@@ -19,9 +19,16 @@ a:visited{
 body{
     font-family: 'Roboto', sans-serif; 
     font-weight: 100;
+    background-color: #EAEEF1;
     /*font-family: 'Raleway', sans-serif;*/
 }
 
+h1{
+    font-size: 1.5em;
+}
+h2{
+    font-size: 1.45em;
+}
 .dash{
     background-color: #0071BC;
     width: 17vw;
@@ -31,10 +38,13 @@ body{
 
 .logo_background{
     background-color: #333333;
-    padding: 2vw 3vw;
+    padding-left:3vw;
+    height: 5vw;
+    display: flex;
+    align-items: center;
 }
 .logo{
-    width: 8vw;
+    width: 6vw;
 }
 
 
@@ -49,4 +59,30 @@ body{
 .board{
     margin-left: 17vw; 
 
+}
+
+.top_page{
+    display: flex;
+    flex-direction: row;
+    height: 5vw;
+    align-items: center;
+    padding-left:  3vw;
+    background-color: #fff;
+}
+
+.home{
+    height: 1.7em;
+    margin-right: 1.2em; 
+}
+
+.title{
+    font-size: 2.4em;
+}
+
+.dashboard{
+    margin: 3vh 0 0 5vh;
+}
+
+.dashboard h1, .dashboard h2{
+    font-weight: bold;
 }
