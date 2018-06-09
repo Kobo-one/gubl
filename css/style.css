@@ -8,6 +8,15 @@ a{
     text-decoration: none;
     cursor: pointer;
 }
+
+a:link{
+    text-decoration: none;
+    color: #fff;
+}
+a:visited{
+    text-decoration: none;
+    color: #fff;
+}
 .text{
     font-size: 1.4em;
     font-family: 'Raleway', sans-serif;
@@ -94,7 +103,7 @@ nav ul{
 }
 
 .product{
-    height: 70vh;
+    margin-bottom: 5vh; 
 }
 
 .product_price{
@@ -169,6 +178,54 @@ nav ul{
     padding-right: 7px;
 }
 
+
+.settings{
+    text-align: center;
+    width: 100vw;
+    z-index: 10;
+    position: absolute;
+    background-color:#0071BC; 
+    color: #fff;
+    font-size: 6vw;
+    display: none;
+}
+
+.settings_nav{
+    padding: 5vw;
+    display: flex;
+    justify-content: space-between;
+}
+.button_close{
+    height: 20px;
+    width: 20px;
+    background-image: url("../images/cross.svg");
+}
+.reset{
+    font-size: 5vw;
+}
+.zoeken, .sorteren{
+    padding: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.optie{
+    padding: 2px;
+    margin: 2vw;
+    background-color: #3FA9F5;
+    height: 26vw;
+    width: 26vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw ;
+    word-break: break-word;
+}
+.sorteer{
+    width: 41vw;
+    height: 41vw;
+    font-size: 6vw;
+}
 
 @media screen and (min-width: 900px){
 

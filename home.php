@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+include_once("lib/classes/Functions.class.php");
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +10,9 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/jquery.scrollify.js"></script>
+    <script src="lib/js/script.js"></script>
 </head>
 <body>
 <?php include_once("includes/nav.php");?>
