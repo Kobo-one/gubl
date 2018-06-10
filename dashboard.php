@@ -6,7 +6,7 @@ include_once("lib/classes/Functions.class.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gubl</title>
+    <title>GUBL - Dashboard</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style2.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:300" rel="stylesheet">

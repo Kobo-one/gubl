@@ -80,9 +80,121 @@ h2{
 }
 
 .dashboard{
-    margin: 3vh 0 0 5vh;
+    font-family: 'Raleway', sans-serif;
+    margin: 3vh 5vh 0 5vh;
 }
 
 .dashboard h1, .dashboard h2{
+    font-family: 'Roboto', sans-serif; 
     font-weight: bold;
+}
+
+
+.artikel{
+    background-color: #fff;
+    border: 1px lightslategrey solid;
+    margin: 20px 0 20px;; 
+    padding: 20px 30px;
+}
+
+.artikel h1{
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.artikel p{
+    margin-bottom: 20px; 
+}
+
+input[type=file], input[type=text], input[type=password], input[type=submit] {
+    
+    font-family: 'Raleway', sans-serif;
+    }
+    
+input[type=file]{ 
+    display: none;
+}
+.image_upload{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color:#EAEEF1;
+    height: 20vh;
+    width: 20vh;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+
+.image{
+    height: 20vh;
+    margin-right: 20px;
+}
+.uploaded{
+    height: 20vh;
+}
+
+.image_description{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.description{
+    padding: 25px 20px;
+    min-width: 30vw;
+    max-width: 40vw;
+
+    min-height: 20vh;
+    max-height: 40vh;
+}
+
+
+input, label {
+    display:block;
+}
+.input_label{
+   margin-right: 60px;
+}
+
+.input_label input, .category, .name{
+    padding-left: 10px; 
+    font-size: 1em;
+    width: 20vh;
+    height: 40px;
+}
+label{
+    margin-bottom: 6px;
+}
+
+.field{
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+}
+.tussenprijs{
+    margin-bottom: 20px;
+}
+
+.extra{
+    color: #3FA9F5;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+input[type=submit]{
+    font-family: 'Roboto', sans-serif; 
+
+    font-weight: 800;
+}
+
+.button{
+    font-size: 1.5em;
+    width: 100%;
+    background-color: #0071BC;
+    color: #fff;
+    height: 5vh;
+    margin-bottom: 30px;
+    border: none;
+    cursor: pointer;
 }

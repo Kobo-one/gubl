@@ -1,5 +1,9 @@
 <?php
 include_once("lib/classes/Functions.class.php");
+include_once("lib/classes/Product.class.php");
+$products = Product::getAllProducts();
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +26,28 @@ include_once("lib/classes/Functions.class.php");
     </div>
     
     <section class="products">
-
+        <?php foreach($products as $key =>$c): ?>  
         <div class="product">
-            <a href="product.php?item=brood">
+            <a href="product.php?item=<?php echo $c['id'] ?>">
                 <div>
-                    <p class='product_price'>€ 2,30</p>
-                    <img class="product_image" src="images/products/brood.jpg" alt="brood">
+                    <p class='product_price'>€<?php echo $c['original_price'] ?></p>
+                    <img class="product_image" src="<?php echo $c['picture'] ?>" alt="<?php echo $c['name'] ?>">
                 </div>
                 <div class="product_details">
-                    <p class="product_name">Wit brood</p>
+                    <p class="product_name"><?php echo $c['name'] ?></p>
                     <div class="progressbar">
                         <div class="bar" style="width: 30%;"></div>
-                        <div class="marker" style="left: 75%;"></div>
-                        <div class="marker" style="left: 50%;"></div>
+                        <?php foreach($c['prices'] as $priceId=>$price):?>
+                        <div class="marker" style="left: <?php $percent = (intval($price['amount']) / intval($c['original_price']))*100;
+                         echo  $percent;
+                         
+                         ?>%;"></div>
+                        <?php endforeach; ?>
                         <div class="backgr"></div>
                     </div>
                     <div class="product_amount-time">
                         <p>150 van 200</p>
-                        <div class="product_time"><img src="images/time.svg" alt="time"><p>1 MAAND</p></div>
+                        <div class="product_time"><img src="images/time.svg" alt="time"><p><?php echo Functions::timeAgo($c['end_date']); ?></p></div>
                     </div>
 
                 </div>
@@ -47,6 +55,7 @@ include_once("lib/classes/Functions.class.php");
 
         </div>
 
+        <?php endforeach; ?>
 
     </section>
 
