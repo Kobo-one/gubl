@@ -294,7 +294,7 @@ class Product {
 
     public static function getAllProducts(){
         $conn = Db::getInstance();
-        $statement=$conn->prepare("SELECT * FROM products WHERE ended = 0 ORDER BY end_date DESC");
+        $statement=$conn->prepare("SELECT * FROM products WHERE ended = 0 ORDER BY end_date ASC");
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as $key => $c){

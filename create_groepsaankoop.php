@@ -35,7 +35,7 @@ if( !empty($_POST) ){
             $product = new Product();
             $product->setImage( $fileDir );
             $product->setName($_POST['name']);
-            $product->setOriginalPrice($_POST['price-original'])
+            $product->setOriginalPrice($_POST['price-original']);
             $product->setDescription($_POST['description']);
             $product->setCategory($_POST['category']);
             $product->setPickupDate($_POST['pickup_date']);
@@ -45,7 +45,7 @@ if( !empty($_POST) ){
             $product->setTussenPrijzen($_POST['price']);
 
             if($product->createProduct()){
-                //header("Location: dashboard.php"); 
+                header("Location: dashboard.php"); 
             }
         }
         
@@ -151,11 +151,11 @@ if( !empty($_POST) ){
                 <div class="field">
                     <div class="input_label">
                         <label for="date">Kies wanneer de groepsaankoop verloopt.</label>
-                        <input type="date" name="date" id="date">
+                        <input type="date" name="date" id="date" min="<?php echo date("Y-m-d")?>" value="<?php echo date("Y-m-d")?>">
                     </div>
                     <div class="input_label">
                         <label for="pickup_date">Kies wanneer de groepsaankoop afgehaald kan worden.</label>
-                        <input type="date" name="pickup_date" id="pickup_date">
+                        <input type="date" name="pickup_date" id="pickup_date" min="<?php echo date("Y-m-d")?>" value="<?php echo date("Y-m-d")?>">
                     </div>
                 </div>
 

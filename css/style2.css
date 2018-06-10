@@ -176,7 +176,7 @@ label{
     margin-bottom: 20px;
 }
 
-.extra{
+.extra, .extra_artikel{
     color: #3FA9F5;
     font-weight: bold;
     text-decoration: underline;
@@ -197,4 +197,9 @@ input[type=submit]{
     margin-bottom: 30px;
     border: none;
     cursor: pointer;
+}
+
+.img_artikel{
+    margin: -20px 0 50px;;
+    
 }
