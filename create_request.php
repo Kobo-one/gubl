@@ -8,7 +8,6 @@ include_once("lib/classes/Request.class.php");
 if( !empty($_POST) ){
     if(isset($_POST['submit'])){
     //if image is chosen
-        try{
         if(!empty($_POST['name']) ){
             $request = new Request();
             $request->setName($_POST['name']);
@@ -20,41 +19,37 @@ if( !empty($_POST) ){
                     foreach($_FILES['image']['name'] as $key => $r){
                        
                         $image = new Image();
-                        $image->setFileName($_FILES['image']['name'][$key]);
+                        $image->setFileName($r);
                         $image->setFileSize($_FILES['image']['size'][$key]);
                         $image->setFileTmp($_FILES['image']['tmp_name'][$key]);
                         $image->setFileType($_FILES['image']['type'][$key]);
-                        $image->setFileDir("images/products/".$_FILES['image']['name'][$key]);
-                        $image->setFileExt(strtolower((explode('.',$_FILES['image']['name'][$key]))[count(explode('.',$_FILES['image']['name'][$key]))-1]));
-                        //get variables to upload and save image on database
-                        $fileTmp = $image->getFileTmp();
-                        $fileDir = $image->getFileDir();
-                        $fileName = $image->getFileName(); 
-                        $fileSize = $image->getFileSize();
-                        if( move_uploaded_file($fileTmp, $fileDir) ){
-                            $images[$key] = $fileDir;
-                            var_dump($images);
+                        $image->setFileDir("images/products/".$r);
+                        if($image->setFileExt(strtolower((explode('.',$r))[count(explode('.',$r))-1]))){
+                                
+                            $fileTmp = $image->getFileTmp();
+                            $fileDir = $image->getFileDir();
+
+                            if( move_uploaded_file($fileTmp, $fileDir) ){
+                                $images[$key] = $fileDir;
+                            
+                            };
                         }
                     };
 
                     
                     $request->setOriginalPrice($_POST['price-original']);
                     $request->setImages( $images );
-                    $request->setName($_POST['artikel']);
+                    $request->setArtikels($_POST['artikel']);
                     $request->setDescription($_POST['description']);
 
                     if($request->saveArtikels()){
-                        echo "done";
-                        // header("Location: dashboard.php"); 
+                        header("Location: dashboard.php"); 
                     }
                 }
+                
         }
         
-    }
     
-    catch(Exception $e){
-        $error= $e->getMessage();
-    }
         
     }
 }
@@ -71,6 +66,11 @@ if( !empty($_POST) ){
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:300" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/script2.js"></script>
+    <script type="text/javascript">
+        if (screen.width <= 699) {
+        document.location = "home.php";
+        }
+    </script>
 </head>
 <body>
 

@@ -27,6 +27,10 @@ a:visited{
     color :#fff;
 }
 
+html{
+    
+    max-width: 500px;
+}
 
 body{
     font-family: 'Roboto', sans-serif; 
@@ -117,7 +121,15 @@ nav ul{
 }
 
 .product_image{
+    width: 100%;
+    max-height: 94vw;
+    display: flex;
+    justify-content: center;
+}
+
+.product_image img{
     max-width: 100%;
+    min-height: 94vw;
 }
 
 .product_details{
@@ -226,6 +238,7 @@ nav ul{
     width: 100%;
     margin-top: 15px; 
     font-size: 0.9em;
+    text-transform: uppercase;
 }
 input{
     font-family: 'Roboto', sans-serif; 
@@ -288,6 +301,9 @@ input{
 
 .slider{
     padding: 0;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
 }
 
 .slider .product{

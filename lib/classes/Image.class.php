@@ -39,7 +39,7 @@
     public function setFileExt($fileExt){
         $expensions = array("jpeg","jpg","png");
         if(in_array($fileExt, $expensions) === false){
-            throw new Exception("Please choose a JPEG or PNG image.");
+            return false;
         }
             $this->fileExt = $fileExt;
             return $this;

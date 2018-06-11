@@ -1,5 +1,12 @@
 <?php
 include_once("lib/classes/Functions.class.php");
+include_once("lib/classes/Product.class.php");
+include_once("lib/classes/Request.class.php");
+
+$requests = Request::getAllRequests();
+$products = Product::getAllProducts();
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +18,12 @@ include_once("lib/classes/Functions.class.php");
     <link rel="stylesheet" href="css/style2.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:300" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="lib/js/script2.js"></script>
+    <script type="text/javascript">
+        if (screen.width <= 699) {
+        document.location = "home.php";
+        }
+    </script>
 </head>
 <body>
 
@@ -23,40 +36,63 @@ include_once("lib/classes/Functions.class.php");
 
         <div class="boards groepsaankopen">
             <h2>Jouw groepsaankopen</h2>
-                    
-            <div class="product">
-                    <div>
-                        <p class='product_price'>€ 2,30</p>
-                        <img class="product_image" src="images/products/brood.jpg" alt="brood">
-                        <div class="product_amount-time on-photo">
-                            <p>150 van 200</p>
-                            <div class="product_time"><img src="images/time_black.svg" alt="time"><p>1 MAAND</p></div>
+            <div class="products">
+           
+            <?php foreach($products as $key =>$c): ?>  
+                <div class="product">
+                    <a href="#">
+                        <div class="price_image">
+                            <p class='product_price'>€<?php echo $c['original_price'] ?></p>
+                            <div class="product_image" ><img src="<?php echo $c['picture'] ?>" alt="<?php echo $c['name'] ?>"></div>
                         </div>
-                    </div>
-                    <div class="product_details">
-                        <p class="product_name">Wit brood</p>
-                        <div class="progressbar opened">
-                            <div class="bar" style="width: 30%;"></div>
-                            <div class="marker" style="left: 75%;"></div>
-                            <div class="marker hiddenmarkers" style="left: 75%;" data-title="At 70% the price would drop to €1.90"></div>
-                            <div class="marker" style="left: 50%;"></div>
-                            <div class="marker hiddenmarkers" style="left: 50%;" data-title="At 50% the price would drop to €2"></div>                    
-                            <div class="backgr"></div>
+                        <div class="product_details">
+                            <p class="product_name"><?php echo $c['name'] ?></p>
+                            <div class="progressbar">
+                                <div class="bar" style="width: 30%;"></div>
+                                <?php foreach($c['prices'] as $priceId=>$price):?>
+                                <div class="marker" style="left: <?php $percent = (intval($price['amount']) / intval($c['original_price']))*100;
+                                echo  $percent;
+                                
+                                ?>%;"></div>
+                                <?php endforeach; ?>
+                                <div class="backgr"></div>
+                            </div>
+                            <div class="product_amount-time">
+                                <p>150 van 200</p>
+                                <div class="product_time"><img src="images/time.svg" alt="time"><p><?php echo Functions::timeAgo($c['end_date']); ?></p></div>
+                            </div>
+
                         </div>
-                        <div class="product_description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim natus, suscipit sit laudantium praesentium consequuntur consequatur minima libero et, adipisci atque ad ea vero similique reiciendis ut id perspiciatis commodi.
-                        </div>  
-                    </div>
+                    </a>
+
+                </div>
+            
+            <?php endforeach; ?>
+            
             </div>
         </div>
         <div class="boards groepsaankopen">
-            <h2>Jouw groepsaankopen</h2>
+            <h2>Jouw requests</h2>
+            <div class="products"><?php foreach($requests as $key =>$r): ?>  
+        <div class="product">
+            <a href="#">
+                <div class="slider">
+                        <div class="product_image"><img  src="<?php echo $r['artikels'][0]['picture'] ?>" alt="<?php echo $r['artikels'][0]['name'] ?>"></div>
+                    
+                </div>
+                <div class="product_details">
+                    <p class="product_name">Keuze <?php echo $r['title'] ?></p>
+                    
+
+                </div>
+            </a>
 
         </div>
-        <div class="boards groepsaankopen">
-            <h2>Jouw groepsaankopen</h2>
 
+    <?php endforeach; ?>
+    </div>
         </div>
+        
 
         </div>
 

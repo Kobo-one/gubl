@@ -11,9 +11,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/jquery.scrollify.js"></script>
     <script src="lib/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    
 </head>
 <body>
-
     <section class="page page_home">
         <nav>
 

@@ -70,6 +70,11 @@ if( !empty($_POST) ){
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:300" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/script2.js"></script>
+    <script type="text/javascript">
+        if (screen.width <= 699) {
+        document.location = "home.php";
+        }
+    </script>
 </head>
 <body>
 

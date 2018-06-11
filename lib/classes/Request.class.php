@@ -234,15 +234,15 @@ class Request {
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as $key => $c){
-            $result[$key]['prices'] = Request::getAllPrices($c['id']);
+            $result[$key]['artikels'] = Request::getAllArtikels($c['id']);
         }
         return $result;
 
     }  
 
-    public static function getAllPrices($id){
+    public static function getAllArtikels($id){
         $conn = Db::getInstance();
-        $statement=$conn->prepare("SELECT price,amount FROM prices WHERE request = :id");
+        $statement=$conn->prepare("SELECT * FROM request_product WHERE request = :id");
         $statement->bindValue(":id", $id);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -256,7 +256,7 @@ class Request {
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as $key => $c){
-            $result[$key]['prices'] = Request::getAllPrices($c['id']);
+            $result[$key]['artikels'] = Request::getAllArtikels($c['id']);
         }
         return $result;
 

@@ -1,5 +1,13 @@
 <?php
+session_start();
+$_SESSION["user"] =1;
 include_once("lib/classes/Functions.class.php");
+include_once("lib/classes/Request.class.php");
+
+$requests = Request::getAllRequests();
+
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +23,11 @@ include_once("lib/classes/Functions.class.php");
     <script src="lib/js/jquery.scrollify.js"></script>
     <script src="lib/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script type="text/javascript">
+        if (screen.width >= 699) {
+        document.location = "dashboard.php";
+        }
+    </script>
 </head>
 <?php include_once("includes/nav.php");?>
     <div class='categories'>
@@ -24,18 +37,16 @@ include_once("lib/classes/Functions.class.php");
     </div>
     
     <section class="products">
-        
+    <?php foreach($requests as $key =>$r): ?>  
         <div class="product">
-            <a href="aanvraag.php?id=1">
+            <a href="aanvraag.php?id=<?php echo $r['id'] ?>">
                 <div class="slider">
-                    <img class="product_image" src="https://www.biertaxi-oss.nl/wp-content/uploads/2017/02/ahi_434d50323135303337_1_lowres_jpg.jpg" alt="brood">
-                
-                    <img class="product_image" src="https://www.biertaxi-oss.nl/wp-content/uploads/2017/02/ahi_434d50323135303337_1_lowres_jpg.jpg" alt="brood">
-                
-                    <img class="product_image" src="https://www.biertaxi-oss.nl/wp-content/uploads/2017/02/ahi_434d50323135303337_1_lowres_jpg.jpg" alt="brood">
+                    <?php foreach($r['artikels'] as $artikel=>$a):?>
+                        <div class="product_image"><img  src="<?php echo $a['picture'] ?>" alt="<?php echo $a['name'] ?>"></div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="product_details">
-                    <p class="product_name">Keuze cola merk</p>
+                    <p class="product_name">Keuze <?php echo $r['title'] ?></p>
                     
 
                 </div>
@@ -43,6 +54,7 @@ include_once("lib/classes/Functions.class.php");
 
         </div>
 
+    <?php endforeach; ?>
 
     </section>
 

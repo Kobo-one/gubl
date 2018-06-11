@@ -1,5 +1,12 @@
 <?php
 include_once("lib/classes/Functions.class.php");
+include_once("lib/classes/Request.class.php");
+$id = $_GET['id'];
+
+if(isset($id)){
+    $request = Request::getRequest($id);
+}
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +22,11 @@ include_once("lib/classes/Functions.class.php");
     <script src="lib/js/jquery.scrollify.js"></script>
     <script src="lib/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script type="text/javascript">
+        if (screen.width >= 699) {
+        document.location = "dashboard.php";
+        }
+    </script>
 </head>
 
 
@@ -22,67 +34,45 @@ include_once("lib/classes/Functions.class.php");
 
 <div class='categories'>
     <div class='button button_back' onclick="history.go(-1);"></div>
-    <p class='categorie'>Keuze Cola merk</p>
+    <p class='categorie'><?php 
+            if(!empty($request)){
+                echo "Stemmen: ".$request[0]['title'];
+            }
+            else{
+                echo "Ongeldig item";
+            }
+    ?></p>
 </div>
-
+<?php foreach($request as $key =>$r): ?>  
 <section class="products slider">
-
-    <div class="product">
-            <div>
-                <p class='product_price'>€ 2,30</p>
-                <img class="product_image" src="images/products/brood.jpg" alt="brood">
-                
-            </div>
-            <div class="product_details">
-                <p class="product_name">Coca Cola</p>
-                
-                <div class="product_description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim natus, suscipit sit laudantium praesentium consequuntur consequatur minima libero et, adipisci atque ad ea vero similique reiciendis ut id perspiciatis commodi.
-                </div>  
-
-                <p>Stemmen:</p>
-                <div class="progressbar opened">
-                    <div class="bar" style="width: 20%;">15/75</div>
-                    <div class="backgr"></div>
+    <?php foreach($r['artikels'] as $artikel => $a): ?>  
+        <div class="product">
+                <div>
+                    <p class='product_price'><?php echo $a['price']?></p>
+                    <div class="product_image" ><img src="<?php echo $a['picture']?>" alt="<?php echo $a['name']?>"></div>
+                    
                 </div>
-                <p>Prijs:</p>
-                <p class="product_pricedescription">Vanaf 100aankopen zou de prijs zakken naar €2.00</p>
-                
-            </div>
+                <div class="product_details">
+                    <p class="product_name"><?php echo $a['name']?></p>
+                    
+                    <div class="product_description">
+                    <?php echo $a['description']?>
+                    </div>  
 
-            <form method="post">
-                <input type="submit" value="VOTE VOOR COCA COLA" name="vote1" class="button button_joinDrop">
-            </form>
-    </div>
-    <div class="product">
-            <div>
-                <p class='product_price'>€ 2,30</p>
-                <img class="product_image" src="images/products/brood.jpg" alt="brood">
-                
-            </div>
-            <div class="product_details">
-                <p class="product_name">Coca Cola</p>
-                
-                <div class="product_description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim natus, suscipit sit laudantium praesentium consequuntur consequatur minima libero et, adipisci atque ad ea vero similique reiciendis ut id perspiciatis commodi.
-                </div>  
-
-                <p>Stemmen:</p>
-                <div class="progressbar opened">
-                    <div class="bar" style="width: 20%;">15/75</div>
-                    <div class="backgr"></div>
+                    <p>Stemmen:</p>
+                    <div class="progressbar opened">
+                        <div class="bar" style="width: 20%;">15/75</div>
+                        <div class="backgr"></div>
+                    </div>
+                                        
                 </div>
-                <p>Prijs:</p>
-                <p class="product_pricedescription">Vanaf 100aankopen zou de prijs zakken naar €2.00</p>
-                
-            </div>
 
-            <form method="post">
-                <input type="submit" value="VOTE VOOR COCA COLA" name="vote1" class="button button_joinDrop">
-            </form>
-    </div>
-
-<script>
+                <form method="post">
+                    <input type="submit" value="VOTE VOOR <?php echo $a['name']?>" name="vote<?php echo $a['id']?>" class="button button_joinDrop">
+                </form>
+        </div>
+    <?php endforeach?>  
     
-</script>
+
 </section>
+<?php endforeach; ?>

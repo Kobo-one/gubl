@@ -1,5 +1,8 @@
 <?php
 include_once("lib/classes/Functions.class.php");
+include_once("lib/classes/Request.class.php");
+
+$requests = Request::getAllRequests();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +14,11 @@ include_once("lib/classes/Functions.class.php");
     <link rel="stylesheet" href="css/style2.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:300" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (screen.width <= 699) {
+        document.location = "home.php";
+        }
+    </script>
 </head>
 <body>
 
