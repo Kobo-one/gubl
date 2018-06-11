@@ -18,11 +18,6 @@ $products = Product::getAllProducts();
     <script src="lib/js/jquery.scrollify.js"></script>
     <script src="lib/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script type="text/javascript">
-        if (screen.width >= 699) {
-        document.location = "dashboard.php";
-        }
-    </script>
 </head>
 <body>
 <?php include_once("includes/nav.php");?>

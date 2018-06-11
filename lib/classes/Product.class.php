@@ -338,6 +338,34 @@ class Product {
 
     }  
 
+    public static function newBuy($id){
+        if(Product::checkBuy($id)){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("INSERT INTO buys (user, product) VALUES (:user,:id)");
+            $statement->bindValue(":user", $_SESSION['user']);
+            $statement->bindValue(":id", $id);
+            $buy_new = $statement->execute();
+            return $buy_new;
+        }else{
+            return false;
+        }
+    }
+
+    public static function checkBuy($id){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT * FROM buys WHERE user = :user AND product = :id");
+        $statement->bindValue(":user", $_SESSION['user']);
+        $statement->bindValue(":id", $id);
+        $buy_new = $statement->execute();
+        if($statement->rowCount()==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
 }
 
 

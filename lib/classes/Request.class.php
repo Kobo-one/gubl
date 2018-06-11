@@ -262,6 +262,52 @@ class Request {
 
     }  
 
+
+    public static function newVote($id){
+        if(Request::checkVote($id)){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("INSERT INTO request_votes (user, request_product) VALUES (:user,:id)");
+            $statement->bindValue(":user", $_SESSION['user']);
+            $statement->bindValue(":id", $id);
+            $buy_new = $statement->execute();
+            return $buy_new;
+        }else{
+            return false;
+        }
+    }
+
+    public static function checkVote($id){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT * FROM request_votes WHERE user = :user AND request_product = :id");
+        $statement->bindValue(":user", $_SESSION['user']);
+        $statement->bindValue(":id", $id);
+        $buy_new = $statement->execute();
+        if($statement->rowCount()==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+    public static function checkVoted($id, $request){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT request_product.request FROM request_votes INNER JOIN request_product ON request_votes.request_product= request_product.id  WHERE user = :user");
+        $statement->bindValue(":user", $_SESSION['user']);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        foreach($result as $key => $r){
+            if($r == $request){
+                return true;
+              }
+              else{
+                  return false;
+              }
+        }
+        
+        
+    }
+
 }
 
 

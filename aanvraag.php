@@ -1,10 +1,20 @@
 <?php
+session_start();
+$_SESSION["user"] =1;
 include_once("lib/classes/Functions.class.php");
 include_once("lib/classes/Request.class.php");
 $id = $_GET['id'];
 
 if(isset($id)){
     $request = Request::getRequest($id);
+}
+
+if(!empty($_POST)){
+    if(Request::newVote(key($_POST))){
+        header("Location: aanvragen.php"); 
+    }
+    
+    
 }
 
 ?><!DOCTYPE html>
@@ -22,11 +32,6 @@ if(isset($id)){
     <script src="lib/js/jquery.scrollify.js"></script>
     <script src="lib/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script type="text/javascript">
-        if (screen.width >= 699) {
-        document.location = "dashboard.php";
-        }
-    </script>
 </head>
 
 
@@ -48,7 +53,7 @@ if(isset($id)){
     <?php foreach($r['artikels'] as $artikel => $a): ?>  
         <div class="product">
                 <div>
-                    <p class='product_price'><?php echo $a['price']?></p>
+                    <p class='product_price'>€ <?php echo $a['price']?></p>
                     <div class="product_image" ><img src="<?php echo $a['picture']?>" alt="<?php echo $a['name']?>"></div>
                     
                 </div>
@@ -66,10 +71,25 @@ if(isset($id)){
                     </div>
                                         
                 </div>
-
-                <form method="post">
-                    <input type="submit" value="VOTE VOOR <?php echo $a['name']?>" name="vote<?php echo $a['id']?>" class="button button_joinDrop">
-                </form>
+                <?php 
+                if(Request::checkVoted($a['id'],$r['id'])){
+                    if(Request::checkVote($a['id'])){
+                        echo '<form method="post">
+                                <input type="submit" value="VERANDER UW VOTE NAAR '.$a['name'].'" name="'.$a['id'].'" class="button button_joinDrop">
+                                </form>';
+                        }else{
+                            echo '<form method="post">
+                                <input type="submit" value="VOTE VOOR '.$a['name'].' VERWIJDEREN?" name="removeVote" class="button button_joinDrop">
+                                </form>';
+                        }
+                }
+                else{
+                    echo '<form method="post">
+                                <input type="submit" value="VOTE VOOR '.$a['name'].' " name="'.$a['id'].'" class="button button_joinDrop">
+                                </form>';
+                }
+                
+                ?>
         </div>
     <?php endforeach?>  
     

@@ -25,11 +25,6 @@ if(isset($_GET["sort"])){
     <script src="lib/js/jquery.scrollify.js"></script>
     <script src="lib/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script type="text/javascript">
-        if (screen.width >= 699) {
-        document.location = "dashboard.php";
-        }
-    </script>
 </head>
 <?php include_once("includes/settings.php");?>
 <?php include_once("includes/nav.php");?>

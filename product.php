@@ -1,10 +1,20 @@
 <?php
+session_start();
+$_SESSION["user"] =1;
 include_once("lib/classes/Functions.class.php");
 include_once("lib/classes/Product.class.php");
 $id = $_GET['item'];
 
 if(isset($id)){
     $product = Product::getProduct($id);
+}
+
+if(isset($_POST['joinDrop'])){
+    if(Product::newBuy($id)){
+        header("Location: items.php"); 
+    }
+    
+
 }
 
 ?><!DOCTYPE html>
@@ -79,10 +89,17 @@ if(isset($id)){
                 </div>  
             </div>
 
-        
-            <form method="post">
-                <input type="submit" value="NEEM DEEL AAN DEZE GROEPSAANKOOP" name="joinDrop" class="button button_joinDrop">
-            </form>
+            <?php if(Product::checkBuy($c['id'])){
+                echo '<form method="post">
+                        <input type="submit" value="NEEM DEEL AAN DEZE GROEPSAANKOOP" name="joinDrop" class="button button_joinDrop">
+                        </form>';
+            }else{
+                echo '<form method="">
+                        <input type="submit" value="U NEEMT AL DEEL AAN DEZE VERKOOP" class="button button_joinDrop greyed">
+                        </form>';
+            }
+            
+            ?>
             <?php endforeach; ?>
     </div>
 
