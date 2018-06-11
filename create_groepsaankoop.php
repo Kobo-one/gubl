@@ -99,15 +99,15 @@ if( !empty($_POST) ){
                             <option value="2">Hobby</option>
                             <option value="3">Huis en tuin</option>
                             <option value="4">Amusement</option>
-                            <option value="4">Kleding</option>
-                            <option value="4">Technologie</option>
+                            <option value="5">Kleding</option>
+                            <option value="6">Technologie</option>
                         </select>
                     </div>
                 </div>
                 <div class="image_description">
                     <div class="image">
                         
-                        <label for="image_upload"  class="image_upload" >Kies een foto om toe te voegen</label>
+                        <label for="image_upload"  class="image_upload load1" >Kies een foto om toe te voegen</label>
                     </div>
                         <input type="file" name="image" id="image_upload" accept=".jpg, .jpeg, .png" onchange="filePreview(this);">
                     <textarea name="description" id="description" class="description"  rows="4" placeholder="Geef hier de omschrijving van het artikel"></textarea>

@@ -219,8 +219,9 @@ input[type=submit]{
 
 .product{
     display: inline-block;
+    margin-right: 10px; 
     margin-bottom: 5vh; 
-    max-width: 500px;
+    max-width: 300px;
 }
 
 .price_image{
@@ -254,6 +255,7 @@ input[type=submit]{
 }
 
 .product_name{
+    overflow: hidden;
     margin-top: 7px; 
     font-size: 1.3em;
     padding-bottom: 10px;

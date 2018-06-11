@@ -1,5 +1,12 @@
 <?php
 include_once("lib/classes/Functions.class.php");
+include_once("lib/classes/Product.class.php");
+include_once("lib/classes/Request.class.php");
+
+$requests = Request::getAllRequests();
+$products = Product::getAllProducts();
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +31,44 @@ include_once("lib/classes/Functions.class.php");
         <div class="top_page"><img class="home" src="images/home.svg" alt="Home"><h1 class="title">MIJN GROEPSAANKOPEN</h1></div>
         
         <div class="dashboard">
-            <h1></h1>
+            
+        <div class="boards groepsaankopen">
+            <h2>Jouw groepsaankopen</h2>
+            <div class="products">
+           
+            <?php foreach($products as $key =>$c): ?>  
+                <div class="product">
+                    <a href="#">
+                        <div class="price_image">
+                            <p class='product_price'>€<?php echo $c['original_price'] ?></p>
+                            <div class="product_image" ><img src="<?php echo $c['picture'] ?>" alt="<?php echo $c['name'] ?>"></div>
+                        </div>
+                        <div class="product_details">
+                            <p class="product_name"><?php echo $c['name'] ?></p>
+                            <div class="progressbar">
+                                <div class="bar" style="width: 0%;"></div>
+                                <?php foreach($c['prices'] as $priceId=>$price):?>
+                                <div class="marker" style="left: <?php $percent = (intval($price['amount']) / intval($c['max_amount']))*100;
+                                echo  $percent;
+                                
+                                ?>%;"></div>
+                                <?php endforeach; ?>
+                                <div class="backgr"></div>
+                            </div>
+                            <div class="product_amount-time">
+                                <p>0 van <?php echo $c['max_amount'] ?></p>
+                                <div class="product_time"><img src="images/time.svg" alt="time"><p><?php echo Functions::timeAgo($c['end_date']); ?></p></div>
+                            </div>
+
+                        </div>
+                    </a>
+
+                </div>
+            
+            <?php endforeach; ?>
+            
+            </div>
+        </div>
 
         </div>
 

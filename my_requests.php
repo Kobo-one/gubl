@@ -1,5 +1,12 @@
 <?php
 include_once("lib/classes/Functions.class.php");
+include_once("lib/classes/Product.class.php");
+include_once("lib/classes/Request.class.php");
+
+$requests = Request::getAllRequests();
+$products = Product::getAllProducts();
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +33,25 @@ include_once("lib/classes/Functions.class.php");
         <div class="dashboard">
         
 
+        <div class="boards groepsaankopen">
+            <h2>Jouw requests</h2>
+            <div class="products"><?php foreach($requests as $key =>$r): ?>  
+        <div class="product">
+            <a href="#">
+                <div class="slider">
+                        <div class="product_image"><img  src="<?php echo $r['artikels'][0]['picture'] ?>" alt="<?php echo $r['artikels'][0]['name'] ?>"></div>
+                    
+                </div>
+                <div class="product_details">
+                    <p class="product_name">Keuze <?php echo $r['title'] ?></p>
+                    
+
+                </div>
+            </a>
+
+        </div>
+
+    <?php endforeach; ?>
         </div>
 
     </div>

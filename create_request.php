@@ -95,8 +95,8 @@ if( !empty($_POST) ){
                             <option value="2">Hobby</option>
                             <option value="3">Huis en tuin</option>
                             <option value="4">Amusement</option>
-                            <option value="4">Kleding</option>
-                            <option value="4">Technologie</option>
+                            <option value="5">Kleding</option>
+                            <option value="6">Technologie</option>
                         </select>
                     </div>
                     

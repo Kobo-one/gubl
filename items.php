@@ -45,9 +45,9 @@ if(isset($_GET["sort"])){
                 <div class="product_details">
                     <p class="product_name"><?php echo $c['name'] ?></p>
                     <div class="progressbar">
-                        <div class="bar" style="width: 30%;"></div>
+                        <div class="bar" style="width: 0%;"></div>
                         <?php foreach($c['prices'] as $priceId=>$price):?>
-                        <div class="marker" style="left: <?php $percent = (intval($price['amount']) / intval($c['original_price']))*100;
+                        <div class="marker" style="left: <?php $percent = (intval($price['amount']) / intval($c['max_amount']))*100;
                          echo  $percent;
                          
                          ?>%;"></div>
@@ -55,7 +55,7 @@ if(isset($_GET["sort"])){
                         <div class="backgr"></div>
                     </div>
                     <div class="product_amount-time">
-                        <p>150 van <?php echo $c['max_amount'] ?></p>
+                        <p>0 van <?php echo $c['max_amount'] ?></p>
                         <div class="product_time"><img src="images/time.svg" alt="time"><p><?php echo Functions::timeAgo($c['end_date']); ?></p></div>
                     </div>
 
